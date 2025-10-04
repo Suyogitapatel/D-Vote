@@ -429,3 +429,9 @@ nav {
     border-radius: 0.5rem;
     overflow: hidden;
 }
+
+.result_-candidate-loader span {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-variant));
+    height: 100%;
+    display: block;
+}
