@@ -7,7 +7,7 @@ import Results from './pages/Results'
 import Elections from './pages/Elections'
 import ElectionDetails from './pages/ElectionDetails'
 import Candidates from './pages/Candidates'
-import Congrates from './pages/Congrates'
+import Congrats from './pages/Congrats'
 import Logout from './pages/Logout'
 
 
@@ -43,8 +43,8 @@ const router = createBrowserRouter([
         element: <Candidates/>
       },
       {
-        path: "congrates",
-        element: <Congrates/>
+        path: "congrats",
+        element: <Congrats/>
       },
       {
         path: "logout",

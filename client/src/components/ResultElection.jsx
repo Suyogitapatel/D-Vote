@@ -25,7 +25,7 @@ const ResultElection = ({id, thumbnail, title}) => {
                     electionCandidates.map(candidate => <CandidateRating key={candidate.id} {...candidate} />)
                 }
             </ul>
-            <Link to={'/elections/${id}/candidates'} className='btn primary full'>Enter Election</Link>
+            <Link to={`/elections/${id}/candidates`} className='btn primary full'>Enter Election</Link>
     </article>
   )
 }

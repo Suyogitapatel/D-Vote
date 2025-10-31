@@ -291,8 +291,106 @@ nav {
 
 
 
-/*======================= MEDIA QUERIES (small screens) 
-======================*/
+/*======================= Election Details ======================*/
+.electionDetails {
+    margin: 5rem 0;
+}
+
+.electionDetails__image{
+    height: 15rem;
+    margin: 1.2rem 0 0.8rem;
+}
+
+.electionDetails__candidates{
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 3rem;
+    border-top: 2px solid var(--color-gray-200);
+}
+
+.electionCandidate{
+    background: var(--color-gray-0);
+    border-radius: var(--radius-4);
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+.electionCandidate__image {
+    height: 15rem;
+    overflow: hidden;
+}
+
+.electionCandidate h5{
+    margin: 0.5rem 0 0.3rem;
+}
+
+.electionCandidate >div:nth-child(2){
+    padding: 1.3rem;
+}
+
+.electionCandidate__btn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 1rem;
+    background: var(--color-danger);
+    color: var(--color-gray-0);
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    border-radius: 0.6rem;
+    display: flex;
+}
+
+.electionCandidate__btn:hover{
+    background: var(--color-gray-900);
+}
+
+.add__candidate-btn{
+background: var(--color-gray-100);
+border: 2px solid var(--color-primary);
+border-radius: var(--radius-4);
+font-size: 5rem;
+color: var(--color-primary);
+box-shadow: 0 0.8rem 0.8rem rgba(0, 0, 0, 0.1);
+transition: var(--transition);
+display: grid;
+place-items: center;
+min-height: 15rem;
+}
+
+.voters{
+    margin: 6rem 0 3rem;
+}
+
+.voters h2{
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.voters__table{
+    width: 100%;
+}
+
+.voters__table thead th {
+    text-align: left;
+    padding: 0.7rem 1.5rem;
+}
+
+.voters__table tbody td {
+    padding: 0.7rem 1.5rem;
+}
+
+.voters__table tbody tr:nth-child(odd){
+    background: var(--color-gray-0);
+}
+
+
+
+
+/*======================= MEDIA QUERIES (small screens) ======================*/
 @media screen and (max-width: 600px) {
     .container {
         width: var(--container-w-sm);
@@ -336,6 +434,43 @@ nav {
 
     .register__container {
         padding: 3rem 1.5rem;
+    }
+
+    .results{
+        width: 100%;
+    }
+
+
+    .candidates_header{
+        width: var(--container-w-sm);
+    }
+
+    .modal__content{
+        width: var(--container-w-sm);
+    }
+
+    .election{
+        grid-template-columns: 1fr;
+    }
+
+    .election__info{
+        padding: 2rem 1rem;
+    }
+
+    .election__image{
+        height: 100%;
+    }
+
+    .voters__table thead tr{
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .voters__table tbody tr{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
 }
 
@@ -434,4 +569,234 @@ nav {
     background: linear-gradient(90deg, var(--color-primary), var(--color-primary-variant));
     height: 100%;
     display: block;
+}
+
+/*============================= CANDIDATES ===================*/
+.candidates{
+    margin: 5rem 0;
+}
+
+.candidates_header{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 60%;
+    margin-inline: auto;
+}
+
+.candidates_header p{
+    margin-bottom: 3rem;
+}
+
+.candidates_header p .btn.primary{
+    justify-content: center;
+}
+
+.candidates_container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem,1fr));
+    gap:3rem;
+}
+
+.candidate{
+    background: var(--color-gray-0);
+    text-align: center;
+    border-radius: var(--radius-3);
+    padding-bottom: 1.2rem;
+    overflow: hidden;
+    box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
+    border: 0.5rem solid var(--color-gray-0);
+    transition: var(--transition);
+}
+
+.candidate:hover{
+    box-shadow: none;
+    border-color: var(--color-gray-100);
+}
+
+.candidate__image{
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    margin-inline: auto;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.candidate small{
+    display: block;
+    margin: 0.5 rem 0 1rem;
+}
+
+
+/*============================= MODAL===================*/
+
+.modal{
+backdrop-filter: blur(5px);
+position: fixed;
+top: 0;
+left: 0;
+z-index: 2;
+height: 100vh;
+width: 100vw;
+background: rgba(0, 0, 0, 0.7);
+display: grid;
+place-items: center;
+}
+
+.modal__content{
+    background: var(--color-gray-0);
+    width: 35rem;
+    border-radius: var(--radius-5);
+    overflow: hidden;
+}
+
+.modal_header{
+    background: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.modal h4{
+    color: white;
+}
+
+.modal_header button{
+background: transparent;
+font-size: 1.8rem;
+color: white;
+}
+
+.modal__content form{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+    padding-bottom: 3rem;
+}
+
+.modal__content form input{
+    margin-top: 0.6rem;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: var(--color-gray-0);
+    border-radius: var(--radius-1);
+    color: var(--color-gray-900);
+}
+
+
+
+
+/*============================= CONFIRM VOTE ===================*/
+
+
+.confirm__vote-content{
+    text-align: center;
+    border-radius: var(--radius-3);
+}
+
+.dark .confirm__vote-content{
+background: #211f2e;
+}
+
+.confirm__vote-content h5{
+    margin: 2rem 0;
+    color: var(--color-primary);
+}
+
+.confirm__vote-image{
+    width: 15rem;
+    aspect-ratio: 1/1;
+    margin-inline: auto;
+    border-radius: var(--radius-3);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.confirm__vote-content p{
+    margin: 0.4rem 0 2.5rem;
+    padding: 0 2rem;
+}
+
+.confirm__vote-cta{
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-inline: auto;
+    margin-bottom: 2rem;
+}
+
+.dark .confirm__vote-cta .btn{
+    color: white;
+}
+
+
+/*============================= CONGRATS ===================*/
+.congrats {
+    padding: 8rem 0;
+    height: 100vh;
+    text-align: center;
+}
+
+.congrats p {
+    margin: 0.5rem 0 1.2rem;
+}
+
+
+
+/*============================= Elections ===================*/
+.elections {
+    margin:5rem 0;
+}
+
+.elections__header{
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+    margin-bottom: 1 rem;
+    padding: 0.5rem;
+}
+
+.election__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.election{
+    display: grid;
+    grid-template-columns: 17rem auto;
+    align-items: center;
+    background: var(--color-gray-0);
+    border-radius: var(--radius-3);
+    overflow: hidden;
+    border: 0.5rem solid var(--color-gray-0);
+    transition: var(--transition);
+}
+
+.election__image{
+    max-height: 13rem;
+}
+
+.election:hover{
+    box-shadow: 0 0.8rem 0.8rem rgba(0, 0, 0, 0.1);
+}
+
+.election__info{
+    padding: 1rem 2rem;
+}
+
+.election__info h4{
+    margin-bottom: 0.7rem;
+    color: var(--color-primary);
+}
+
+.election__cta{
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 1rem;
 }
