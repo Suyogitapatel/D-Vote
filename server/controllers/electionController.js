@@ -8,11 +8,7 @@ const CandidateModel = require('../models/candidateModel')
 
 // ==================== ADD NEW ELECTION
 // POST: api/elections
-
-
-
 // PROTECTED(only admin)
-
 const addElection = async (req, res, next) =>{
     try {
         // only admin can add election
