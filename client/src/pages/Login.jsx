@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+<<<<<<< HEAD
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import {useDispatch} from 'react-redux';
@@ -10,6 +11,12 @@ const Login = () => {
 
   const dispatch = useDispatch();
 
+=======
+import { Link } from 'react-router-dom'
+
+const Login = () => {
+  const [userData, setUserData] = useState({fullName: "", password: "", password2: ""})
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
 
   // function to chnage controlled inputs
   const changeInputHandler = (e) => {
@@ -17,6 +24,7 @@ const Login = () => {
       return{...prevState, [e.target.name]: e.target.value}
     })
   }
+<<<<<<< HEAD
   const navigate = useNavigate;
 
   const loginVoter = async (e) => {
@@ -34,6 +42,8 @@ const Login = () => {
       
     }
   }
+=======
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
 
   
 
@@ -41,10 +51,17 @@ const Login = () => {
     <section className="register">
       <div className="container register__container">
         <h2>Sign In</h2>
+<<<<<<< HEAD
         <form onSubmit={loginVoter}>
           {error &&<p className="form__error-message">{error}</p>}
           
           <input type="text" name='email' placeholder='Email Address' onChange={changeInputHandler} autoComplete='true' autoFocus />
+=======
+        <form>
+          <p className="form__error-message"> Any error from the backend</p>
+          
+          <input type="text" name='email' placeholder='Email Address' onChange={changeInputHandler} autoComplete='true' />
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
           <input type="text" name='password' placeholder='Password' onChange={changeInputHandler} autoComplete='true' />
           
           <p>Don't have an account ? <Link to='/register'>Sign up</Link></p>

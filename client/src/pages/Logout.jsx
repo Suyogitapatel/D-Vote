@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { voteActions } from '../store/vote-slice'
@@ -15,6 +16,15 @@ const Logout = () => {
   }, [])
   return (
     <></>
+=======
+import React from 'react'
+
+const Logout = () => {
+  return (
+    <div>
+      logout
+    </div>
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
   )
 }
 

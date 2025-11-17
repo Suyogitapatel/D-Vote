@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react'
 // import { elections as dummyElections} from '../data'
 import ResultElection from '../components/ResultElection'
@@ -35,6 +36,15 @@ const Results = () => {
 
 
 
+=======
+import React, { useState } from 'react'
+import { elections as dummyElections} from '../data'
+import ResultElection from '../components/ResultElection'
+
+
+const Results = () => {
+  const [elections, setElections] = useState(dummyElections) 
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
   return (
     <section className="result">
       <div className="container result">

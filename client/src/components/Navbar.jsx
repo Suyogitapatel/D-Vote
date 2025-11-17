@@ -4,12 +4,20 @@ import { IoIosMoon } from "react-icons/io";
 import { IoMdSunny } from "react-icons/io";
 import { HiOutlineBars3 } from "react-icons/hi2";
 import { AiOutlineClose } from "react-icons/ai";
+<<<<<<< HEAD
 import { useSelector } from 'react-redux';
+=======
+
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
 
 const Navbar = () => {
     const [showNav, setShowNav] = useState(window.innerWidth < 600 ? false: true)
     const [darkTheme, setDarkTheme] = useState(localStorage.getItem('voting-app-theme') || "")
+<<<<<<< HEAD
     const token = useSelector(state => state?.vote?.currentVoter?.token)
+=======
+
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
     // functin to close nav menu on small screens when menu link is clicked
     const closeNavMenu = () => {
       if(window.innerWidth < 600) {
@@ -36,9 +44,15 @@ const Navbar = () => {
   return (
     <nav>
       <div className="container nav__container">
+<<<<<<< HEAD
         <Link to="/" classroom='nav__logo'>EGATOR</Link>
         <div>
           {token && showNav && <menu>
+=======
+        <Link to="/" className='nav__logo'>EGATOR</Link>
+        <div>
+          {showNav && <menu>
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
             <NavLink to="/elections" onClick={closeNavMenu}>Elections</NavLink>
             <NavLink to="/results" onClick={closeNavMenu}>Results</NavLink>
             <NavLink to="/logout" onClick={closeNavMenu}>Logout</NavLink>

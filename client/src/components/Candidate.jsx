@@ -3,7 +3,11 @@ import { UiActions } from '../store/ui-slice'
 import { useDispatch } from 'react-redux'
 import { voteActions } from '../store/vote-slice'
 
+<<<<<<< HEAD
 const Candidate = ({image, _id: id, fullName, motto}) => {
+=======
+const Candidate = ({image, id, fullName, motto}) => {
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
 
 const dispatch = useDispatch()
 //open confirm vote modal

@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
+<<<<<<< HEAD
 import { useDispatch, useSelector } from 'react-redux'
 import { UiActions } from '../store/ui-slice'
 import axios from 'axios'
 import { useNavigation } from 'react-router-dom'
+=======
+import { useDispatch } from 'react-redux'
+import { UiActions } from '../store/ui-slice'
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
 
 const AddElectionModal = () => {
     const[title, setTitle] = useState("")
@@ -11,12 +16,16 @@ const AddElectionModal = () => {
     const[thumbnail, setThumbnail] = useState("")
 
     const dispatch = useDispatch()
+<<<<<<< HEAD
     const navigate = useNavigation()
+=======
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
 
     //close add election modal
     const closeModal = () => {
         dispatch(UiActions.closeElectionModal())
     }
+<<<<<<< HEAD
     const token = useSelector(state => state?.vote?.currentVoter?.token)
 
     
@@ -35,6 +44,8 @@ const AddElectionModal = () => {
             console.log(error)
         }
     }
+=======
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
 
   return (
     <section className="modal">
@@ -43,14 +54,22 @@ const AddElectionModal = () => {
                 <h4>Create New Election</h4>
                 <button className="modal__close" onClick={closeModal}><IoMdClose /></button>
             </header>
+<<<<<<< HEAD
             <form onSubmit={createElection}>
+=======
+            <form>
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
                 <div>
                     <h6>Election Title:</h6>
                     <input type="text" value ={title} onChange={e => setTitle(e.target.value)} name='title'/>
                 </div>
                 <div>
                     <h6>Election Description:</h6>
+<<<<<<< HEAD
                     <input type="text" value={description} name='description' onChange={e => setDescription(e.target.value)}/>
+=======
+                    <input type="text" value={title} name='description' onChange={e => setDescription(e.target.value)}/>
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
                 </div>
                 <div>
                     <h6>Election Thumbnail:</h6>
@@ -63,4 +82,8 @@ const AddElectionModal = () => {
   )
 }
 
+<<<<<<< HEAD
 export default AddElectionModal
+=======
+export default AddElectionModal
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521

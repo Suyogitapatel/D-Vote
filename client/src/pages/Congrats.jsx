@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import {Link, useNavigate} from 'react-router-dom'
@@ -10,6 +11,11 @@ const Congrats = () => {
     navigate('/')
   }
 }, [])
+=======
+import React from 'react'
+import {Link} from 'react-router-dom'
+const Congrats = () => {
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
   return (
    <section className="congrats">
     <div className="container congrats__container">

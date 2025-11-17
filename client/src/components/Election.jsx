@@ -1,4 +1,5 @@
 import React from 'react'
+<<<<<<< HEAD
 import { useDispatch, useSelector } from 'react-redux'
 import Link from 'react-router-dom'
 import { UiActions } from '../store/ui-slice'
@@ -17,6 +18,12 @@ const Election = ({_id: id,title,description,thumbnail}) => {
 
   const isAdmin = useSelector(state => state?.vote?.currentVoter?.isAdmin)
 
+=======
+import {Link} from 'react-router-dom'
+
+
+const Election = ({id,title,description,thumbnail}) => {
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
   return (
     <article className="election">
         <div className="election__image">
@@ -28,7 +35,11 @@ const Election = ({_id: id,title,description,thumbnail}) => {
             description}</p>
             <div className="election__cta">
                 <Link to={`/elections/${id}`} className="btn sm">View</Link>
+<<<<<<< HEAD
                 {isAdmin && <button className="btn sm primary">Edit</button>}
+=======
+                <button className="btn sm primary">Edit</button>
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
             </div>
         </div>
     </article>

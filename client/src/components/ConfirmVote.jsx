@@ -1,16 +1,25 @@
 import React, { useEffect, useState } from 'react'
+<<<<<<< HEAD
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux'
 import { UiActions } from '../store/ui-slice'
 import { voteActions } from '../store/vote-slice';
 import { Navigate, useNavigate } from 'react-router-dom';
+=======
+import { candidates } from '../data'
+import { useDispatch, useSelector } from 'react-redux'
+import { UiActions } from '../store/ui-slice'
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
 
 
 const ConfirmVote = () => {
     const [modalCandidate, setModalCandidate] = useState({})
 
     const dispatch = useDispatch()
+<<<<<<< HEAD
     const nagivate = useNavigate();
+=======
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
 //close confirm vote modal
     const closeCandidateModal = ()=> {
         dispatch(UiActions.closeVoteCandidateModal())
@@ -18,6 +27,7 @@ const ConfirmVote = () => {
 
 
     //get selected candidate id from redux store
+<<<<<<< HEAD
     const selectedVoteCandidate = useSelector(state => state?.vote?.selectedVoteCandidate)
     const token = useSelector(state => state?.vote?.currentVoter?.token)
      const currentVoter = useSelector(state => state?.vote?.currentVoter)
@@ -43,6 +53,18 @@ const confirmVote = async() => {
 
 
 }
+=======
+    const selectedVoteCandidate = useSelector(state => state.vote.selectedVoteCandidate)
+
+ // get the selected candidates
+ const fetchCandidate = () => {
+    candidates.find(candidate => {
+        if(candidates.id == selectedVoteCandidate){
+            setModalCandidate(candidate)
+        }
+    })
+ }
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
 
 useEffect(() => {
     fetchCandidate()

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import Candidate from'../components/Candidate'
@@ -59,11 +60,28 @@ useEffect (() => {
     }
 
 }, [])
+=======
+import React, { use } from 'react'
+import { candidates as dummyCandidates} from '../data'
+import { useParams } from 'react-router-dom'
+import Candidate from'../components/Candidate'
+import ConfirmVote from '../components/ConfirmVote'
+import {useSelector} from 'react-redux'
+
+const Candidates = () => {
+ const {id} = useParams()
+
+const voteCandidateModalShowing = useSelector(state => state.ui.voteCandidateModalShowing)
+
+ //get candidates that belong to this election
+ const candidates = dummyCandidates.filter(candidate => candidate.election === id)
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
 
 
   return(
     <>
     <section className="candidates">
+<<<<<<< HEAD
       {!canVote ? <header className="candidates_header">
         <h1>Already Voted</h1>
         <p>You only permitted to vote once in this election. Please vote in another election or sign out.</p>
@@ -84,6 +102,21 @@ useEffect (() => {
     </section>
 
     {voteCandidateModalShowing && <ConfirmVote selectedElection={selectedElection} />}
+=======
+      <header className="candidates_header">
+        <h1>Vote your candidate</h1>
+        <p>These are the candidates for the selected election. 
+          Please vote once and wisely, because you wont be allowed to vote again. </p>
+      </header>
+      <div className="container candidates_container">
+        {
+          candidates.map(candidate => <Candidate key={candidate.id} {...candidate}/>)
+        }
+      </div>
+    </section>
+
+    {voteCandidateModalShowing && <ConfirmVote />}
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
     </>
   )
 }

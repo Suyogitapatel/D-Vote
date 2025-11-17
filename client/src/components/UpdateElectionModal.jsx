@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
 import { useDispatch, useSelector } from 'react-redux'
 import { UiActions } from '../store/ui-slice'
+<<<<<<< HEAD
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+=======
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
 
 const UpdateElectionModal = () => {
     const [title, setTitle] = useState("")
@@ -14,10 +17,13 @@ const UpdateElectionModal = () => {
     const idOfElectionToUpdate = useSelector(state => state?.vote?.idOfElectionToUpdate)
     const token = useSelector(state => state?.vote?.currentVoter?.token)
 
+<<<<<<< HEAD
     const navigate = useNavigate()
 
     console.log(idOfElectionToUpdate)
     //  close update election model
+=======
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
     const closeModal = () => {
         dispatch(UiActions.closeUpdateElectionModal())
     }
@@ -37,6 +43,7 @@ const UpdateElectionModal = () => {
         fetchElection()
     }, [])
 
+<<<<<<< HEAD
     const updateElection = async (e) => {
         e.preventDefault();
         try {
@@ -51,6 +58,8 @@ const UpdateElectionModal = () => {
             
         }
     }
+=======
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
 
     return(
         <section className="modal">
@@ -59,7 +68,11 @@ const UpdateElectionModal = () => {
                     <h4>Edit Election</h4>
                     <button className="modal__close" onClick={closeModal}><IoMdClose/></button>
                 </header>
+<<<<<<< HEAD
                 <form onSubmit={updateElection}>
+=======
+                <form>
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
                     <div>
                         <h6>Election Title:</h6>
                         <input type="text" value={title} onChange={e => setTitle(e.target.value)} name='title'/>
@@ -80,4 +93,8 @@ const UpdateElectionModal = () => {
     )
 }
 
+<<<<<<< HEAD
 export default UpdateElectionModal
+=======
+export default UpdateElectionModal
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521

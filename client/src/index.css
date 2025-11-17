@@ -171,6 +171,7 @@ button {
 
 
 /*============================ NAVBAR =============================*/
+<<<<<<< HEAD
 nav {
     background: var(--color-primary);
     display: grid;
@@ -240,6 +241,137 @@ nav {
 
 
 
+=======
+
+/* ===== NAVBAR ===== */
+nav {
+  background: var(--color-primary);
+  display: grid;
+  place-items: center;
+  height: 3.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+/* Container layout */
+.nav__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* Text and link colors */
+.nav__container * {
+  color: white;
+  text-decoration: none;
+}
+
+/* Logo */
+.nav__logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Buttons container */
+.nav__container div {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+/* Navigation links */
+.nav__container menu {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.nav__container a {
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.nav__container a:hover {
+  color: var(--color-primary-variant);
+}
+
+/* Theme toggle button */
+.theme__toggle-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.theme__toggle-btn:hover {
+  opacity: 0.8;
+}
+
+/* Navbar toggle button (hamburger) */
+.nav__toggle-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+  display: none; /* hidden on desktop */
+  transition: transform 0.3s ease;
+}
+
+.nav__toggle-btn:hover {
+  transform: rotate(90deg);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media screen and (max-width: 600px) {
+  nav {
+    height: 4rem;
+  }
+
+  .nav__container div {
+    gap: 1rem;
+  }
+
+  .nav__toggle-btn {
+    display: block; /* show menu icon on mobile */
+  }
+
+  .nav__container menu {
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    width: 100%;
+    background: var(--color-primary);
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
 
 
 
@@ -387,6 +519,7 @@ min-height: 15rem;
     background: var(--color-gray-0);
 }
 
+<<<<<<< HEAD
 /* ========================Loader================ */
 .loader{
     display: grid;
@@ -399,6 +532,9 @@ min-height: 15rem;
     width: 7rem;
     height: 7rem;
 }
+=======
+
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
 
 
 /*======================= MEDIA QUERIES (small screens) ======================*/
@@ -513,6 +649,10 @@ min-height: 15rem;
 }
 
 .result__header {
+<<<<<<< HEAD
+=======
+    margin:2rem;
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -138,7 +138,11 @@ const voteCandidate = async(req, res, next) =>{
         await election.save({session:sess})
         await voter.save({session:sess})
         await sess.commitTransaction();
+<<<<<<< HEAD
         res.status(200).json(voter.votedElections)
+=======
+        res.status(200).json("voted casted successfully")
+>>>>>>> fe84bdb6aa64d3128583873587d7c11a57e58521
     } catch (error) {
         return next(new HttpError(error))
     }
