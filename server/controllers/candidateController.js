@@ -138,7 +138,7 @@ const voteCandidate = async(req, res, next) =>{
         await election.save({session:sess})
         await voter.save({session:sess})
         await sess.commitTransaction();
-        res.status(200).json("voted casted successfully")
+        res.status(200).json(voter.votedElections)
     } catch (error) {
         return next(new HttpError(error))
     }

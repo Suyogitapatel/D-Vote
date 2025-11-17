@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { candidates } from '../data'
+import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux'
 import { UiActions } from '../store/ui-slice'
+import { voteActions } from '../store/vote-slice';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 
 const ConfirmVote = () => {
     const [modalCandidate, setModalCandidate] = useState({})
 
     const dispatch = useDispatch()
+    const nagivate = useNavigate();
 //close confirm vote modal
     const closeCandidateModal = ()=> {
         dispatch(UiActions.closeVoteCandidateModal())
@@ -15,16 +18,31 @@ const ConfirmVote = () => {
 
 
     //get selected candidate id from redux store
-    const selectedVoteCandidate = useSelector(state => state.vote.selectedVoteCandidate)
+    const selectedVoteCandidate = useSelector(state => state?.vote?.selectedVoteCandidate)
+    const token = useSelector(state => state?.vote?.currentVoter?.token)
+     const currentVoter = useSelector(state => state?.vote?.currentVoter)
+    console.log(selectedVoteCandidate)
+ // get the  candidates selected to be voted for
+ const fetchCandidate = async () => {
+    try {
+        const response = await axios.get(`${process.envREACT_APP_API_URL}/candidates/${selectedVoteCandidate}`, {withCredentials: true, headers: {Authorization: `Bearer ${token}`}})
+        setModalCandidate(await response.data) 
+    } catch (error) {
+        console.log(error)
+        
+    }
+    
+}
 
- // get the selected candidates
- const fetchCandidate = () => {
-    candidates.find(candidate => {
-        if(candidates.id == selectedVoteCandidate){
-            setModalCandidate(candidate)
-        }
-    })
- }
+// confirm vote for selected candidate
+const confirmVote = async() => {
+    const response = await axios.patch(`${process.env.REACT_APP_API_URL}/candidates/${selectedVoteCandidate}`, {withCredentials: true, headers: {Authorization: `Bearer ${token}`}})
+    const voteResult = await response.data;
+    dispatch(voteActions.changeCurrentVoter({...currentVoter, votedElections: voteResult}))
+    nagivate('')
+
+
+}
 
 useEffect(() => {
     fetchCandidate()
