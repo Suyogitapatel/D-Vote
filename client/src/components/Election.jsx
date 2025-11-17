@@ -1,8 +1,22 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Link from 'react-router-dom'
+import { UiActions } from '../store/ui-slice'
+import { voteActions } from '../store/vote-slice'
+import { useSearchParams } from 'next/navigation'
 
 
-const Election = ({id,title,description,thumbnail}) => {
+const Election = ({_id: id,title,description,thumbnail}) => {
+
+
+  const dispatch = useDispatch()
+  const openModal = () => {
+    dispatch(UiActions.openUpdateElectionModal())
+    dispatch(voteActions.changeIdOfElectionToUpdate(id))
+  }
+
+  const isAdmin = useSelector(state => state?.vote?.currentVoter?.isAdmin)
+
   return (
     <article className="election">
         <div className="election__image">
@@ -14,7 +28,7 @@ const Election = ({id,title,description,thumbnail}) => {
             description}</p>
             <div className="election__cta">
                 <Link to={`/elections/${id}`} className="btn sm">View</Link>
-                <button className="btn sm primary">Edit</button>
+                {isAdmin && <button className="btn sm primary">Edit</button>}
             </div>
         </div>
     </article>

@@ -1,15 +1,23 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 // import { elections as dummyElections} from '../data'
 import ResultElection from '../components/ResultElection'
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 
 const Results = () => {
   const [elections, setElections] = useState([]) 
   
   const token = useSelector(state => state?.vote?.currentVoter?.token);
+ const navigate = useNavigate()
 
+  //Access Control
+ useEffect(() => {
+  if(!token){
+    navigate('/')
+  }
+}, [])
   const getElections = async (e) => {
     try {
       const response = await axios.get(`${process.env.REACT_APP_API_URL}/elections`, {withCredentials: true, headers: {Authorization: `Bearer ${token}`}})

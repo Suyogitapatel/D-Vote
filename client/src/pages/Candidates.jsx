@@ -1,18 +1,26 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import Candidate from'../components/Candidate'
 import ConfirmVote from '../components/ConfirmVote'
 import {useSelector} from 'react-redux'
 import axios from 'axios';
 
 const Candidates = () => {
+const token = useSelector(state => state?.vote?.currentVoter?.token)
+const navigate = useNavigate()
+//Access Control
+useEffect(() => {
+  if(!token){
+    navigate('/')
+  }
+}, [])
  const {id: selectedElection} = useParams()
  const [candidates, setCandidates] = useState([])
  const [canVote, setCanVote] = useState(true);
 
 const voteCandidateModalShowing = useSelector(state => state.ui.voteCandidateModalShowing)
 
-const token = useSelector(state => state?.vote?.currentVoter?.token)
+
 const voterId = useSelector(state => state?.vote?.currentVoter?.id)
 const votedElections = useSelector(state => state?.vote?.currentVoter?.VotedElections)
 
